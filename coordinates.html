@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script>
+    <script>
+     function setup() {
+       createCanvas(721, 401);
+     }
+
+     function draw() {
+       background(0);
+       noFill();
+
+       stroke(255, 153, 0);
+
+       var squareSize = 10;
+       for (i = 0; i < height/squareSize; i++) {
+         for (j = 0; j < width/squareSize; j++) {
+           rect(j * squareSize, i * squareSize, squareSize, squareSize);
+         }
+       }
+     }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
