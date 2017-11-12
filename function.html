@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script>
+    <script>
+     var centerX, centerY;
+     var xDirection = 2;
+     var yDirection = 2;
+
+     function setup() {
+       createCanvas(720, 400);
+       background(51);
+       noStroke();
+       //noLoop();
+       centerX = Math.random(0, 1) * width;
+       centerY = Math.random(0, 1) * height;
+     }
+
+     function draw() {
+       background(51);
+       drawTarget(centerX, centerY, 100, 200);
+       centerX = centerX + xDirection;
+       centerY = centerY + yDirection;
+
+       if (centerX <= 50 || centerX >= 670) {
+         xDirection = xDirection * -1;
+       }
+
+       if (centerY <= 50 || centerY >= 350) {
+         yDirection = yDirection * -1;
+       }
+
+       // drawTarget(width * 0.25, height * 0.40, 100, 100);
+       // drawTarget(width * 0.50, height * 0.50, 150, 100);
+       // drawTarget(width * 0.75, height * 0.30, 150, 100);
+     }
+
+     function drawTarget(x, y, size, num) {
+       var grayvalues = 255/num;
+       var steps = size/num;
+       for (var i = 0; i < num; i++) {
+         fill(i * grayvalues);
+         ellipse(x, y, size - i * steps, size - i * steps);
+       }
+     }
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
